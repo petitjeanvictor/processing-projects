@@ -31,17 +31,10 @@ class RPSAutomaton extends Automaton {
   int newState(int oldState, int neighbors) {
     return (neighbors > _threshold) ? (oldState + 1) % _nStates : oldState;
   }
-
-  void show() {
-    int resW = width / _width;
-    int resH = height / _height;
-
-    noStroke();
-    for (int i = 0; i < _width; i++) {
-      for (int j = 0; j < _height; j++) {
-        fill(_color[_grid[i][j]]);
-        rect(i * resW, j * resH, resW, resH);
-      }
-    }
+  
+  void reset() {
+    this.initializeRandom();
   }
+
+  
 }
